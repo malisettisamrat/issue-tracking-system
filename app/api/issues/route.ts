@@ -4,8 +4,8 @@ import prisma from "@/prisma/client";
 
 export async function POST(request: NextRequest) {
   const createIssueSchema = z.object({
-    title: z.string().min(1).max(255),
-    description: z.string().min(1),
+    title: z.string().min(1, 'Title is Required.').max(255),
+    description: z.string().min(1, 'Description is Required.'),
   })
   const result = await request.json();
   const validation = createIssueSchema.safeParse(result);
