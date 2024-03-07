@@ -1,7 +1,6 @@
 import { issueSchema } from "@/app/validationSchemas";
-import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/prisma/client";
-import { error } from "console";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function PATCH(
   request: NextRequest,
@@ -48,7 +47,7 @@ export async function DELETE(
   if (!issue)
     return NextResponse.json({ error: "Issue Not Found" }, { status: 404 });
 
-  const deleteIssue = await prisma.issue.delete({
+  await prisma.issue.delete({
     where: {
       id: issue.id,
     },
