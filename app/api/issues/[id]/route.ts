@@ -54,5 +54,5 @@ export async function DELETE(
     },
   });
 
-  return NextResponse.json(deleteIssue);
+  return NextResponse.json({});
 }
