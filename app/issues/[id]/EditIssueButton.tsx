@@ -12,7 +12,7 @@ const EditIssueButton = ({ issueId }: { issueId: number }) => {
   return (
     <Button radius="large">
       <Pencil2Icon />
-      <Link href={`/issues/${issueId}/edit`}>Edit Issue</Link>
+      <Link href={`/issues/edit/${issueId}`}>Edit Issue</Link>
     </Button>
   );
 };

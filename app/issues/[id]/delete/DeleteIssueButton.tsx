@@ -14,14 +14,14 @@ const DeleteIssueButton = ({ issueId }: { issueId: number }) => {
   const deleteIssue = async () => {
     try {
       setIsDeleting(true);
-      await axios.delete('/api/issues/' + issueId);
-      router.push('/issues');
+      await axios.delete("/api/issues/" + issueId);
+      router.push("/issues/list");
       router.refresh();
     } catch (error) {
       setError(true);
       setIsDeleting(false);
     }
-  }
+  };
 
   return (
     <>
@@ -31,7 +31,6 @@ const DeleteIssueButton = ({ issueId }: { issueId: number }) => {
             Delete Issue
             {isDeleting && <Spinner />}
           </Button>
-
         </AlertDialog.Trigger>
         <AlertDialog.Content style={{ maxWidth: 450 }}>
           <AlertDialog.Title>Delete Issue</AlertDialog.Title>
@@ -51,12 +50,21 @@ const DeleteIssueButton = ({ issueId }: { issueId: number }) => {
             </AlertDialog.Action>
           </Flex>
         </AlertDialog.Content>
-      </AlertDialog.Root >
+      </AlertDialog.Root>
       <AlertDialog.Root open={error}>
         <AlertDialog.Content style={{ maxWidth: 450 }}>
           <AlertDialog.Title>Error</AlertDialog.Title>
-          <AlertDialog.Description>This issue could not be deleted.</AlertDialog.Description>
-          <Button mt="2" color="gray" variant="soft" onClick={() => setError(false)}>OK</Button>
+          <AlertDialog.Description>
+            This issue could not be deleted.
+          </AlertDialog.Description>
+          <Button
+            mt="2"
+            color="gray"
+            variant="soft"
+            onClick={() => setError(false)}
+          >
+            OK
+          </Button>
         </AlertDialog.Content>
       </AlertDialog.Root>
     </>
