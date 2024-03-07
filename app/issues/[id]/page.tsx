@@ -25,7 +25,6 @@ const IssueDetailsPage = async ({ params }: { params: { id: string } }) => {
       <Card className='prose' mt="4">
         <ReactMarkdown>{issue?.description}</ReactMarkdown>
       </Card>
-
     </div>
   )
 }
