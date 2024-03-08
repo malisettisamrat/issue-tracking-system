@@ -2,10 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {}
-
-@media (prefers-color-scheme: dark) {
-  :root {}
+:root {
 }
 
-body {}
+@media (prefers-color-scheme: dark) {
+  :root {
+  }
+}
+
+body {
+}
+
+@layer utilities {
+  .nav-link {
+    @apply text-zinc-500 hover:text-zinc-800 transition-colors;
+  }
+}
